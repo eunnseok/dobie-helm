@@ -53,7 +53,7 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
           - name: json-data
-          - mountPath: /data
+            mountPath: /data
       volumes:
       - name: json-data
       - hostpath:
