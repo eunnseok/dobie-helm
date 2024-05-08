@@ -56,11 +56,11 @@ spec:
             name: json-data
             
       volumes:
-      - hostpath:
-          name: json-data
-          path: /var/dobie/data
-          type: Directory
-        name: json-data
+        - hostpath:
+            name: json-data
+            path: /var/dobie/data
+            type: Directory
+            name: json-data
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
