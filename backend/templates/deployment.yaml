@@ -52,13 +52,13 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - name: json-data
-              mountPath: /data
+          - name: json-data
+            mountPath: /data
       volumes:
-        - name: json-data
-          hostpath:
-            path: /var/dobie/data
-            type: Directory
+      - name: json-data
+        hostpath:
+          path: /var/dobie/data
+          type: Directory
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
