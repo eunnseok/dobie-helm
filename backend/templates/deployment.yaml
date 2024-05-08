@@ -56,7 +56,7 @@ spec:
             mountPath: /data
       volumes:
       - name: json-data
-      - hostpath:
+        hostpath:
           name: json-data
           path: /var/dobie/data
           type: Directory
