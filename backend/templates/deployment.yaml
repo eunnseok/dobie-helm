@@ -57,6 +57,7 @@ spec:
       volumes:
       - name: json-data
       - hostpath:
+          name: json-data
           path: /var/dobie/data
           type: Directory
       {{- with .Values.nodeSelector }}
