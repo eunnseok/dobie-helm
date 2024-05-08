@@ -42,24 +42,25 @@ spec:
               path: /actuator/health/liveness
               port: 8080
               #initialDelaySeconds: '5'
-              periodSeconds: 3
+            periodSeconds: 3
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
               port: 8080
               #initialDelaySeconds: '5'
-              periodSeconds: 3
+            periodSeconds: 3
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-          - name: json-data
-            mountPath: /data
+          - mountPath: /data
+            name: json-data
+            
       volumes:
-      - name: json-data
-        hostpath:
+      - hostpath:
           name: json-data
           path: /var/dobie/data
           type: Directory
+        name: json-data
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
